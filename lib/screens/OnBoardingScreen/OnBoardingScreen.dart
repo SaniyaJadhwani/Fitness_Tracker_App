@@ -10,6 +10,7 @@ class OnBoardingScreen extends StatefulWidget {
 }
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
+  bool isLastPage=false;
   PageController controller= PageController();
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           PageView(
             controller: controller,
             onPageChanged: (index){setState(() {
-              index = 2;
+
+              isLastPage = index == 2;
             });},
             children: [
               _buildPageIndicator(text:'Meet Your Coach ,\nStart Your Journey',imageAsset: 'assets/OnBoardingImages/OnBoarding1.jpg',),
@@ -29,6 +31,53 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               _buildPageIndicator(text:'Action is the\nKey to Success',imageAsset: 'assets/OnBoardingImages/OnBoarding3.jpg',)
             ],
           ),
+          isLastPage
+          ? const SizedBox.shrink()
+          :Positioned(
+            top: size.height*0.05,
+            right: size.width*0.05,
+            child:TextButton(onPressed: (){
+            controller.animateToPage(2, duration: const Duration(milliseconds: 300), curve: Curves.ease);
+          },
+            child: const Text('Skip',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 20.0,
+            fontWeight: FontWeight.bold,
+          ),
+            ),
+          ),
+          ),
+          isLastPage
+          ? Positioned(
+            left: size.width*0.25,
+              right: size.width*0.25,
+              bottom: size.height*0.09,
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 5,horizontal:20),
+                width: size.width,
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(208, 253, 62, 1),
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                child: Row(
+                  children: [
+                    TextButton(
+                        onPressed: (){},
+                        child: const Text('Get Started',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                        ),)),
+                    SizedBox(width: 5),
+                    const Icon(
+                      Icons.arrow_forward_ios,
+                      color: Colors.black,
+                    )
+                  ],
+                ),
+              ),):SizedBox.shrink(),
           Positioned(
             bottom: size.height*0.03,
               left: size.width*0.42,
