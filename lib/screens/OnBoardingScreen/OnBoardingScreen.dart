@@ -1,3 +1,4 @@
+import 'package:fitness_tracker/screens/GenderScreen/GenderScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -54,16 +55,19 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               right: size.width*0.25,
               bottom: size.height*0.09,
               child: Container(
-                padding: EdgeInsets.symmetric(vertical: 5,horizontal:20),
+                padding: EdgeInsets.symmetric(vertical: 5,horizontal:10),
                 width: size.width,
                 decoration: BoxDecoration(
                   color: Color.fromRGBO(208, 253, 62, 1),
                   borderRadius: BorderRadius.circular(30),
                 ),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextButton(
-                        onPressed: (){},
+                        onPressed: (){
+                          Navigator.pushNamed(context,'/Gender');
+                        },
                         child: const Text('Get Started',
                         style: TextStyle(
                           color: Colors.white,
@@ -77,7 +81,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     )
                   ],
                 ),
-              ),):SizedBox.shrink(),
+              ),):const SizedBox.shrink(),
           Positioned(
             bottom: size.height*0.03,
               left: size.width*0.42,
