@@ -3,6 +3,7 @@ import 'package:fitness_tracker/screens/AgeScreen/AgeScreen.dart';
 import 'package:fitness_tracker/screens/GenderScreen/GenderScreen.dart';
 import 'package:fitness_tracker/screens/GoalScreen/GoalScreen.dart';
 import 'package:fitness_tracker/screens/HeightScreen/HeightScreen.dart';
+import 'package:fitness_tracker/screens/LoginSignup/ForgotPassword.dart';
 import 'package:fitness_tracker/screens/OnBoardingScreen/OnBoardingScreen.dart';
 import 'package:fitness_tracker/screens/WeightScreen/WeightScreen.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
           '/Goal': (context) => Goalscreen(),
         },
       debugShowCheckedModeBanner: false,
-      home: OnBoardingScreen(),
+      home: ForgotPassword(),
     );
   }
 }
